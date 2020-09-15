@@ -1,0 +1,301 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dd="urn:gong-wpf-dragdrop"
+        xmlns:local="clr-namespace:Licenta"
+        xmlns:Properties="clr-namespace:Licenta.Properties" x:Class="Licenta.MainWindow"
+        mc:Ignorable="d"
+        Title="Grab'o'Block" Height="640" Width="1024" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <TabControl TabStripPlacement="Left" Margin="0,25,0,10" HorizontalAlignment="Left" Width="160">
+            <TabControl.Resources>
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <ContentPresenter Content="{TemplateBinding Content}">
+                                    <ContentPresenter.LayoutTransform>
+                                        <RotateTransform Angle="270" />
+                                    </ContentPresenter.LayoutTransform>
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Padding" Value="3" />
+                </Style>
+            </TabControl.Resources>
+            <!--LOGICA-->
+            <!--VARIABILE-->
+            <TabItem Header="Variabile" BorderBrush="#FF9BACAC" >
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#7F9BFF96" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <StackPanel Background="White" Margin="5,0,2,3" Orientation="Vertical">
+                    <WrapPanel x:Name="varnou_wp" HorizontalAlignment="Left" Height="41" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Orientation="Vertical">
+                        <WrapPanel.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF787878" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </WrapPanel.Background>
+                        <Button Content="Variabila noua" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click6" Canvas.Top="10" Canvas.Left="10" ToolTip="Adauga o variabila noua in spatiul de lucru.">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF9BFF96" Offset="0"/>
+                                    <GradientStop Color="#FFAECDA9" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Label Content="Nume:"/>
+                        <TextBox x:Name ="varnou_nume" Height="23" TextWrapping="Wrap" Width="98"/>
+                        <Label Content="Tip:"/>
+                        <ComboBox x:Name ="varnou_tip"  Width="98" SelectedIndex="0">
+                            <ComboBoxItem Content="int"/>
+                            <ComboBoxItem Content="float"/>
+                        </ComboBox>
+                        <Label/>
+                        <Button Content="Ok" Width="100" Height="23" Click="Button_Click3"/>
+                    </WrapPanel>
+                    <Button Content="Seteaza variabila" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click2" ToolTip="Atribuie o valoare variabilelor existente in spatiul de lucru.">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF9BFF96" Offset="0"/>
+                                <GradientStop Color="#FFAECDA9" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Schimba variabila" HorizontalAlignment="Left" Margin="10,5,0,0" Width="100" Click="Button_Click1" Height="41" VerticalAlignment="Top">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF9BFF96" Offset="0"/>
+                                <GradientStop Color="#FFAECDA9" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <GroupBox Header="Variabile:" Height="419">
+                        <ListBox x:Name="lista_variabile" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="113" Margin="0,10,-2,0"/>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+            <!--LOGICA-->
+            <TabItem Header="Logica">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#7FFFFF96" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="White" Margin="5,0,2,4">
+                    <Button Content="if" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click1" ToolTip="Produce un eveniment daca afirmatia este corecta.">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFFFF96" Offset="0.538"/>
+                                <GradientStop Color="#FFCDCD7B" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="when" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="100" Height="41"/>
+                    <Button Content="return" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click7" ToolTip="Returneaza valoarea unui caracter/variabila.">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFFFF96" Offset="0.538"/>
+                                <GradientStop Color="#FFCDCD7B" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="else" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click_2" ToolTip="Produce un eveniment daca 'IF' este fals.">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFFFF96" Offset="0.538"/>
+                                <GradientStop Color="#FFCDCD7B" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </TabItem>
+            <!---->
+            <TabItem Header="Bucle">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#7FA050C8" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <StackPanel Background="White" Margin="5,0,2,3" Orientation="Vertical">
+                    <Button Content="While" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click_4" ToolTip="Cat timp afirmatia este adevarata, se ruleaza codul.">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFC864F0" Offset="0"/>
+                                <GradientStop Color="#FF783C96" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <WrapPanel x:Name="for_wp" HorizontalAlignment="Left" Height="41" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Orientation="Vertical">
+                        <WrapPanel.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF787878" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </WrapPanel.Background>
+                        <Button Content="For" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click_6" ToolTip="Executa codul de cate ori dorim.">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFC864F0" Offset="0"/>
+                                    <GradientStop Color="#FF783C96" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Label Content="Variabila:"/>
+                        <TextBox x:Name ="varnoua_nume" Height="23" TextWrapping="Wrap" Width="98"/>
+                        <Label/>
+                        <Button Content="Ok" Width="100" Height="23" Click="Button_Click_5"/>
+                    </WrapPanel>
+                </StackPanel>
+            </TabItem>
+            <!--TEXT-->
+            <TabItem Header="Text" >
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#7F50FFFF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="White" Margin="5,0,2,4">
+                    <Button Content="Text" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="41"/>
+                    <Button Content="Print" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click4" ToolTip="Afiseaza continutul dorit.">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF50FFFF" Offset="0.5"/>
+                                <GradientStop Color="#FF58A6A6" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Set text" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="100" Height="41"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Calcule">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#7FFFBE32" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <StackPanel Background="White" Margin="5,0,2,3" Orientation="Vertical">
+                    <WrapPanel x:Name="math_wp" HorizontalAlignment="Left" Height="41" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Orientation="Vertical">
+                        <WrapPanel.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF787878" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </WrapPanel.Background>
+                        <Button Content="Basic Math" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click_7" ToolTip="Atribuie o valoare variabilelor existente in spatiul de lucru.">
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFFFC85A" Offset="0"/>
+                                    <GradientStop Color="#FFBE8C28" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Label Content="Variabila:"/>
+                        <TextBox x:Name ="varMath_nume" Height="23" TextWrapping="Wrap" Width="98"/>
+                        <Label Content="Tip:"/>
+                        <ComboBox x:Name ="varMath_tip"  Width="98" SelectedIndex="0">
+                            <ComboBoxItem Content="int"/>
+                            <ComboBoxItem Content="float"/>
+                        </ComboBox>
+                        <Label>
+                            <CheckBox x:Name="varMath_check" Content="Variabila noua" FontSize="11"/>
+                        </Label>
+                        <Button Content="Ok" Width="100" Height="23" Click="Button_Click_8"/>
+                    </WrapPanel>
+                    <Button Content="Increment" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click_9" ToolTip="Incrementeaza o variabila cu o unitate.">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFFC85A" Offset="0"/>
+                                <GradientStop Color="#FFBE8C28" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                     </Button>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Punctuatii">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FF966432" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="White" Margin="5,0,2,4">
+                    <Button Content="{}{" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click_1" ToolTip="Inceputul incapsularii functiei logice.">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFC98C5A" Offset="0"/>
+                                <GradientStop Color="#FF7E6550" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="}" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="100" Height="41" Click="Button_Click_1" ToolTip="Sfarsitul incapsularii functiei logice.">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFC98C5A" Offset="0"/>
+                                <GradientStop Color="#FF7E6550" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <ListBox x:Name="sp_lucru" Margin="165,70,296,10"
+                 dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True" IsSynchronizedWithCurrentItem="False">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Margin="5" Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+        <ListBox Name="recycle" Margin="0,0,296,10" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 dd:DragDrop.IsDropTarget="True" dd:DragDrop.DragHandler="{Binding}" 
+                 HorizontalAlignment="Right" Width="115" Height="110" VerticalAlignment="Bottom" SelectedIndex="0" IsSynchronizedWithCurrentItem="True">
+            <ListBox.Background>
+                <ImageBrush ImageSource="Images/recycle.png"/>
+            </ListBox.Background>
+        </ListBox>
+
+        <Canvas Margin="0,25,10,10" Background="#FFE5E5E5" HorizontalAlignment="Right" Width="281">
+            <Button Content="Compileaza" Canvas.Left="10" Canvas.Top="10" Width="125" Height="25" Click="Button_Click5" ToolTip="Transforma blocurile din spatiul de lucru in cod si le compileaza."/>
+            <Button Content="Ruleaza" Canvas.Left="146" Canvas.Top="10" Width="125" Height="25" Click="Button_Click" ToolTip="Ruleaza codul produs dupa compilare."/>
+            <TextBox x:Name="code_sect" MinHeight="23" MaxHeight="524" Canvas.Left="10" TextWrapping="Wrap" Text="Code Section..." Canvas.Top="40" Width="261"/>
+            <GroupBox Header="Console output:" Height="139" Canvas.Left="10" Width="261" Canvas.Bottom="10">
+                <TextBox x:Name="console_sect" MinHeight="23" MaxHeight="524" TextWrapping="Wrap" Text="Console Section..." Margin="0,3,-2,-4" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Focusable="False"/>
+            </GroupBox>
+        </Canvas>
+
+        <Menu Height="20" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="New" Click="MenuItem_Click"/>
+                <MenuItem Header="Open"/>
+                <MenuItem Header="Save">
+                    <MenuItem Header="Save"/>
+                    <MenuItem Header="Save As"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Test" Click="menuItem2_Click"/>
+            <MenuItem Header="Help" Click="menuItem3_Click"/>
+        </Menu>
+        <Rectangle Fill="#FFF4F4F5" Height="40" Margin="160,25,291,0" Stroke="Gray" VerticalAlignment="Top" StrokeThickness="0.5"/>
+        <TextBox x:Name="my_namespace" HorizontalAlignment="Left" Height="23" Margin="274,35,0,0" TextWrapping="Wrap" Text="MyNamespace" VerticalAlignment="Top" Width="86"/>
+        <Label Content="Namespace Name:" HorizontalAlignment="Left" Margin="165,32,0,0" VerticalAlignment="Top"/>
+        <Label Content="Class Name:" HorizontalAlignment="Left" Margin="366,32,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="my_class" HorizontalAlignment="Left" Height="23" Margin="440,35,0,0" TextWrapping="Wrap" Text="MyClass" VerticalAlignment="Top" Width="87"/>
+        <Label Content="Function Name:" HorizontalAlignment="Left" Margin="532,32,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="my_function" HorizontalAlignment="Left" Height="23" Margin="625,35,0,0" TextWrapping="Wrap" Text="MyFunction()" VerticalAlignment="Top" Width="87"/>
+        <Button Content="X" Margin="0,0,390,99" FontWeight="Bold" Click="Button_Click_3" Height="21" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="21" ToolTip="Sterge blocurile din cosul de reciclare."/>
+    </Grid>
+</Window>

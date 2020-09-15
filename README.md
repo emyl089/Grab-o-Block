@@ -11,4 +11,4 @@ A C# Visual Language capable of creating C# scripts.
 ### Easy to use
 ##### Add graphical blocks in workspace
 
-![Figura 4.1](https://github.com/emyl089/Grab-o-Block/blob/master/Images/Figura 4.1.png)
+![Figura 1](https://github.com/emyl089/Grab-o-Block/blob/master/Images/Figura%204.1.png)
